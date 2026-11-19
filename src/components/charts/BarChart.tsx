@@ -238,9 +238,9 @@ const BarChart: React.FC<BarChartProps> = ({
                       x={barX + barWidth / 2}
                       y={chartBottom + 20}
                       textAnchor="middle"
-                      className="text-xs sm:text-sm font-semibold fill-gray-700"
+                      className="text-[10px] sm:text-xs font-semibold fill-gray-700"
                     >
-                      {item.label}
+                      {item.label.startsWith('Category ') ? `C${item.label.replace('Category ', '')}` : item.label}
                     </text>
                   </g>
                 );

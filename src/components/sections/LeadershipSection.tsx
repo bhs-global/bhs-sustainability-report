@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { bhsColors, documents } from '../../data/bhsData';
+import { ghgInventory2025 } from '../../data/ghgInventory2025';
 import { Download, User, Building, Target, CheckCircle } from 'lucide-react';
 
 const LeadershipSection: React.FC = () => {
@@ -151,13 +152,15 @@ const LeadershipSection: React.FC = () => {
               <div className="flex items-center gap-4 mb-6">
                 <Target className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
                 <h3 className="text-xl sm:text-2xl font-bold">
-                  Historical Achievements 2024
+                  FY2025 Inventory & Historical 2024 Results
                 </h3>
               </div>
               
               <div className="space-y-4">
                 {[
-                  { metric: 'GHG Emissions', value: 'FY2024', description: 'Historical Scope 1+2 data retained separately' },
+                  { metric: 'FY2025 Scope 1 + 2', value: `${ghgInventory2025.scope1And2.toFixed(2)} tCO₂e`, description: 'FY2025 inventory; Scope 3 shown separately' },
+                  { metric: 'FY2025 Scope 3', value: `${ghgInventory2025.scope3.toFixed(2)} tCO₂e`, description: 'Assessment across all 15 Scope 3 categories' },
+                  { metric: 'FY2025 Total GHG', value: `${ghgInventory2025.total.toFixed(2)} tCO₂e`, description: 'Scope 1 + 2 location-based plus Scope 3' },
                   { metric: 'Female Workforce', value: '14.7%', description: 'Up from 9% in 2023' },
                   { metric: 'Safety Incidents', value: '-16.7%', description: 'Reduction from 42 to 35' },
                   { metric: 'Training Investment', value: 'SGD 38.6K', description: 'Employee development' }
@@ -183,7 +186,7 @@ const LeadershipSection: React.FC = () => {
               
               <div className="mt-6 space-y-3">
                 <a
-                  href={documents.ghgInventory}
+                  href={documents.ghgInventory2025}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl text-white text-sm sm:text-base font-medium hover:opacity-90 transition-opacity w-full justify-center"

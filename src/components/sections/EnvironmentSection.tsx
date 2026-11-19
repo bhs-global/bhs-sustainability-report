@@ -254,12 +254,6 @@ const EnvironmentSection: React.FC = () => {
 
               </div>
 
-              {/* Note */}
-              <div className="mt-4 p-4 bg-green-50 rounded-lg">
-                <p className="text-sm font-medium text-green-800">
-                  Historical 2024 and FY2025 inventory data are shown separately. A year-on-year reduction is not claimed until reporting boundaries and methodologies are confirmed comparable.
-                </p>
-              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -290,7 +284,7 @@ const EnvironmentSection: React.FC = () => {
 
             <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg">
               <h3 className="text-lg md:text-xl font-semibold mb-4">FY2025 Scope 3 category breakdown</h3>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="space-y-6">
                 <BarChart
                   title="Reported Scope 3 Categories (tCO₂e)"
                   data={ghgInventory2025.scope3Categories
@@ -302,10 +296,10 @@ const EnvironmentSection: React.FC = () => {
                     }))}
                   height={360}
                 />
-                <div className="border border-gray-200 rounded-lg divide-y max-h-[360px] overflow-y-auto">
+                <div className="border border-gray-200 rounded-lg divide-y">
                   {ghgInventory2025.scope3Categories.map((category) => (
                     <details key={category.category} className="p-3">
-                      <summary className="cursor-pointer flex justify-between gap-3 font-medium">
+                      <summary className="cursor-pointer flex justify-between gap-3 font-normal">
                         <span>Category {category.category} – {category.description}</span>
                         <span className="whitespace-nowrap">{category.emissions.toFixed(2)} tCO₂e</span>
                       </summary>

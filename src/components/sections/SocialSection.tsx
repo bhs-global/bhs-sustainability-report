@@ -353,9 +353,9 @@ const SocialSection: React.FC = () => {
                 <BarChart
                   title="Age Group 31-40 Distribution (Employees)"
                   data={[
-                    { label: '2023', value: workforceDataExtended.ageGroup[2023]['31-40'], color: bhsColors.primaryDark },
-                    { label: '2024', value: workforceDataExtended.ageGroup[2024]['31-40'], color: bhsColors.primaryDark },
-                    { label: '2025', value: workforceDataExtended.ageGroup[2025]['31-40'], color: bhsColors.primaryDark }
+                    { label: '2023', value: workforceDataExtended.ageGroup[2023]['31-40'], color: bhsColors.neutralGrey },
+                    { label: '2024', value: workforceDataExtended.ageGroup[2024]['31-40'], color: bhsColors.accentOrange },
+                    { label: '2025', value: workforceDataExtended.ageGroup[2025]['31-40'], color: bhsColors.esgGreen }
                   ]}
                   height={400}
                 />
