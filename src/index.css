@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+  
+  .text-responsive-2xl {
+    font-size: 1.875rem !important;
+    line-height: 2.25rem !important;
+  }
+  
+  .text-responsive-3xl {
+    font-size: 2.25rem !important;
+    line-height: 2.5rem !important;
+  }
+  
+  .text-responsive-4xl {
+    font-size: 2.5rem !important;
+    line-height: 2.75rem !important;
+  }
+  
+  .text-responsive-5xl {
+    font-size: 3rem !important;
+    line-height: 3.25rem !important;
+  }
+  
+  .padding-responsive {
+    padding: 1rem !important;
+  }
+  
+  .margin-responsive {
+    margin: 0.5rem !important;
+  }
+}
+
+/* Tablet responsive */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .text-responsive-xl {
+    font-size: 1.75rem !important;
+    line-height: 2.125rem !important;
+  }
+  
+  .text-responsive-2xl {
+    font-size: 2rem !important;
+    line-height: 2.25rem !important;
+  }
+  
+  .text-responsive-3xl {
+    font-size: 2.5rem !important;
+    line-height: 2.75rem !important;
+  }
+  
+  .text-responsive-4xl {
+    font-size: 3rem !important;
+    line-height: 3.25rem !important;
+  }
+  
+  .text-responsive-5xl {
+    font-size: 3.5rem !important;
+    line-height: 3.75rem !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0.5cm;
+  }
+  
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .print\\:page-break-after-always {
+    page-break-after: always;
+  }
+  
+  .print\\:page-break-inside-avoid {
+    page-break-inside: avoid;
+  }
+  
+  .print\\:hidden {
+    display: none !important;
+  }
+  
+  nav, button, .fixed {
+    display: none !important;
+  }
+  
+  main {
+    padding-top: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+  }
+  
+  section {
+    min-height: auto !important;
+    max-height: 100vh !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    padding: 1cm !important;
+    overflow: visible !important;
+  }
+  
+  /* Ensure content fits within page */
+  .section-page,
+  [class*="section"] {
+    page-break-after: always;
+    page-break-inside: avoid;
+    max-height: 100vh !important;
+    overflow: visible !important;
+  }
+  
+  /* Prevent large elements from breaking pages */
+  .bg-white,
+  .rounded-xl,
+  .rounded-3xl {
+    page-break-inside: avoid;
+  }
+  
+  /* Optimize spacing for print */
+  .space-y-8 > * + * {
+    margin-top: 1rem !important;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 0.75rem !important;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
