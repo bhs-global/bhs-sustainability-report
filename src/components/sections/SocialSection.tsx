@@ -618,6 +618,7 @@ const SocialSection: React.FC = () => {
             <div className="space-y-4">
               <a
                 href={documents.livingWage}
+                download
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"

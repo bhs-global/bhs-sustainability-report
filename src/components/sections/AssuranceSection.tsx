@@ -77,6 +77,7 @@ const AssuranceSection: React.FC = () => {
             <div className="mt-6 text-center print:mt-4">
               <a
                 href={documents.environmentalprincipalendorsment}
+                download
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-white font-medium hover:opacity-90 transition-opacity text-sm sm:text-base print:px-4 print:py-2 print:text-sm"
@@ -187,6 +188,7 @@ const AssuranceSection: React.FC = () => {
             <div className="mt-6 text-center print:mt-4">
               <a
                 href={documents.ghgProgress}
+                download
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-white font-medium hover:opacity-90 transition-opacity text-sm sm:text-base print:px-4 print:py-2 print:text-sm"

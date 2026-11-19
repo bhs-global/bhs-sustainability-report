@@ -337,18 +337,21 @@ export const workforceAgeGroup3Y = {
   2025: { "18-19": 3, "20-30": 75, "31-40": 175, "41-50": 97, "51-60": 44, "61-70": 11, "71-80": 1, total: 406 }
 };
 
+const publicAsset = (filename: string) =>
+  `${import.meta.env.BASE_URL}${filename}`;
+
 export const documents = {
-  ghgInventory2024: '/BHS-IMS-ECO-37_-_GHG_EMISSIONS_INVENTORY_REPORT_2024.pdf',
-  ghgInventory2025: '/BHS-IMS-ECO-37_-_GHG_EMISSIONS_INVENTORY_REPORT_2025.docx',
-  reductionPlan: '/BHS-IMS-ECO-34-ESG-GHG-Reduction-Plan.pdf',
-  livingWage: '/BHS-IMS-ECO-36_-_LIVING_WAGE_MEASURES.pdf',
-  wasteReport: '/BHS-IMS-ECO-35_-_NON_HAZARDOUS_WASTE_INVENTORY_REPORT.pdf',
-  airPollutant: '/BHS-IMS-ECO-38_-_AIR_POLLUTANT_INVENTORY_REPORT.pdf',
-  esgReporting: '/BHS-IMS-ECO-33_-_ENVIRONMENTAL,_LABOUR_AND_HUMAN_RIGHTS,_ETHICS_REPORTING.pdf',
-  fuelData: '/JAN_2024_TO_APRIL_2024_FUEL_CONSUMPTION_DATA.xlsx',
-  scope2Emission: '/BHS-Kinetic_Scope_2_Emission_2024_1.xlsx',
-  iso14064: '/BHS-Kinetic-ISO14064-1---2024_1.xlsx',
-  ghgProgress: '/BHS-IMS-ECO-32-GHG_Reduction_Progress_Summary.pdf',
-  environmentalprincipalendorsment: '/BHS_Environmental_Principles_Endorsement_Statement.pdf',
-  airpollutant: '/BHS-IMS-ECO-38_-_AIR_POLLUTANT_INVENTORY_REPORT.pdf'
+  ghgInventory2024: publicAsset('BHS-IMS-ECO-37_-_GHG_EMISSIONS_INVENTORY_REPORT_2024.pdf'),
+  ghgInventory2025: publicAsset('BHS-IMS-ECO-37_-_GHG_EMISSIONS_INVENTORY_REPORT_2025.docx'),
+  reductionPlan: publicAsset('BHS-IMS-ECO-34-ESG-GHG-Reduction-Plan.pdf'),
+  livingWage: publicAsset('BHS-IMS-ECO-36_-_LIVING_WAGE_MEASURES.pdf'),
+  wasteReport: publicAsset('BHS-IMS-ECO-35_-_NON_HAZARDOUS_WASTE_INVENTORY_REPORT.pdf'),
+  airPollutant: publicAsset('BHS-IMS-ECO-38_-_AIR_POLLUTANT_INVENTORY_REPORT.pdf'),
+  esgReporting: publicAsset('BHS-IMS-ECO-33_-_ENVIRONMENTAL,_LABOUR_AND_HUMAN_RIGHTS,_ETHICS_REPORTING.pdf'),
+  fuelData: publicAsset('JAN_2024_TO_APRIL_2024_FUEL_CONSUMPTION_DATA.xlsx'),
+  scope2Emission: publicAsset('BHS-Kinetic_Scope_2_Emission_2024_1.xlsx'),
+  iso14064: publicAsset('BHS-Kinetic-ISO14064-1---2024_1.xlsx'),
+  ghgProgress: publicAsset('BHS-IMS-ECO-32-GHG_Reduction_Progress_Summary.pdf'),
+  environmentalprincipalendorsment: publicAsset('BHS_Environmental_Principles_Endorsement_Statement.pdf'),
+  airpollutant: publicAsset('BHS-IMS-ECO-38_-_AIR_POLLUTANT_INVENTORY_REPORT.pdf')
 }

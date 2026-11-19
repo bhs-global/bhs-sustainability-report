@@ -112,6 +112,7 @@ const GovernanceSection: React.FC = () => {
               <div className="border-t pt-4">
                 <a
                   href={documents.esgReporting}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-white text-sm sm:text-base hover:opacity-90 transition-opacity w-full justify-center"

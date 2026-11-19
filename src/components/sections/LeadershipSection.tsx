@@ -187,6 +187,7 @@ const LeadershipSection: React.FC = () => {
               <div className="mt-6 space-y-3">
                 <a
                   href={documents.ghgInventory2025}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl text-white text-sm sm:text-base font-medium hover:opacity-90 transition-opacity w-full justify-center"
@@ -198,6 +199,7 @@ const LeadershipSection: React.FC = () => {
 
                 <a
                   href={documents.iso14064}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl text-white text-sm sm:text-base font-medium hover:opacity-90 transition-opacity w-full justify-center"

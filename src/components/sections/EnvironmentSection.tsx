@@ -333,6 +333,7 @@ const EnvironmentSection: React.FC = () => {
               <div className="flex flex-col md:flex-row gap-3 md:gap-4">
                 <a
                   href={documents.airpollutant}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm w-full md:w-auto justify-center"
@@ -344,6 +345,7 @@ const EnvironmentSection: React.FC = () => {
 
                 <a
                   href={documents.ghgInventory2024}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm w-full md:w-auto justify-center"
@@ -354,6 +356,7 @@ const EnvironmentSection: React.FC = () => {
                 </a>
                  <a
                   href={documents.ghgInventory2025}
+                   download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm w-full md:w-auto justify-center"
@@ -447,6 +450,7 @@ const EnvironmentSection: React.FC = () => {
               <div className="flex flex-col sm:flex-row flex-wrap gap-2 md:gap-4">
                 <a
                   href={documents.reductionPlan}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm"
@@ -457,6 +461,7 @@ const EnvironmentSection: React.FC = () => {
                 </a>
                 <a
                   href={documents.fuelData}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm"
@@ -467,6 +472,7 @@ const EnvironmentSection: React.FC = () => {
                 </a>
                 <a
                   href={documents.scope2Emission}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm"
@@ -866,6 +872,7 @@ const EnvironmentSection: React.FC = () => {
               <div className="space-y-3 md:space-y-4">
                 <a
                   href={documents.wasteReport}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
@@ -878,6 +885,7 @@ const EnvironmentSection: React.FC = () => {
                 </a>
                 <a
                   href={documents.airPollutant}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
@@ -896,6 +904,7 @@ const EnvironmentSection: React.FC = () => {
               <div className="space-y-3 md:space-y-4">
                 <a
                   href={documents.reductionPlan}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
@@ -908,6 +917,7 @@ const EnvironmentSection: React.FC = () => {
                 </a>
                 <a
                   href={documents.fuelData}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
@@ -920,6 +930,7 @@ const EnvironmentSection: React.FC = () => {
                 </a>
                 <a
                   href={documents.scope2Emission}
+                  download
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
