@@ -35,7 +35,7 @@ const AdminDashboard: React.FC = () => {
             <h3 className="text-xl font-semibold">KPI Cards Management</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { title: 'Scope 1+2 Emissions', value: '3,088.40', unit: 'tCO₂e', trend: -7.7 },
+                { title: 'Scope 1+2 Emissions', value: '3,860.96', unit: 'tCO₂e', trend: undefined },
                 { title: 'Total Employees', value: '408', trend: 5.2 },
                 { title: 'Total Waste (2024)', value: '10,048.84', unit: 'kg', trend: 40.9 },
                 { title: 'Flexi Benefits', value: 'SGD 31,957.29', trend: 12.3 }

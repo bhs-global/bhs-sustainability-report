@@ -23,7 +23,7 @@ const AssuranceSection: React.FC = () => {
                 { process: 'Data Collection', status: 'Implemented', progress: 100 },
                 { process: 'Quality Control', status: 'Ongoing', progress: 85 },
                 { process: 'Internal Review', status: 'Completed', progress: 100 },
-                { process: 'External Verification', status: 'Planned', progress: 25 }
+                { process: 'External Verification', status: 'To be confirmed', progress: 0 }
               ].map((item, index) => (
                 <div key={index} className="space-y-2">
                   <div className="flex justify-between items-center flex-wrap gap-2">
@@ -54,10 +54,25 @@ const AssuranceSection: React.FC = () => {
             
             <div className="mt-6 p-4 bg-gray-50 rounded-xl print:mt-4 print:p-3">
               <p className="text-xs sm:text-sm text-gray-600 print:text-xs">
-                <strong>Next Steps:</strong> Third-party verification scheduled for Q2 2026 
-                with accredited verification body to ensure compliance with ISO 14064-3.
+                <strong>External verification status: To be confirmed.</strong> FY2025 inventory methodology, assumptions and activity data are disclosed for review. External verification has not been established by the available evidence.
               </p>
             </div>
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                ['Organisational boundary', 'Operational control approach'],
+                ['Scope 1', 'Mobile combustion from operationally controlled vehicles'],
+                ['Scope 2', 'Purchased electricity; location-based and market-based reporting'],
+                ['Scope 3', 'Assessment of all 15 categories using activity-based and spend-based estimates']
+              ].map(([label, value]) => (
+                <div key={label} className="p-4 bg-white border border-gray-200 rounded-xl">
+                  <div className="text-xs text-gray-500">{label}</div>
+                  <div className="text-sm font-medium mt-1">{value}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-xs sm:text-sm text-gray-600">
+              Calculations use country/regional and global proxy emission factors where actual activity-specific factors were unavailable. Estimation limitations and data-quality improvement opportunities remain for supplier transport, treatment routes, air travel, hotel, rental car, commuting and end-of-life treatment data.
+            </p>
 
             <div className="mt-6 text-center print:mt-4">
               <a

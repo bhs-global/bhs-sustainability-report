@@ -51,7 +51,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ onNavigate }) => {
                 BHS Kinetic Pte Ltd
               </div>
               <div className="text-sm sm:text-base md:text-lg text-gray-500 mt-2">
-                Reporting Year: 2024
+                Reporting Year: 2025
               </div>
             </div>
 

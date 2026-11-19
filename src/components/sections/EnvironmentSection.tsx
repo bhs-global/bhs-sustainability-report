@@ -20,6 +20,7 @@ import {
 } from '../../data/bhsData';
 import BarChart from '../charts/BarChart';
 import { Download, Target, TrendingDown, Leaf, Wind, Droplets } from 'lucide-react';
+import { ghgInventory2025 } from '../../data/ghgInventory2025';
 
 
 const EnvironmentSection: React.FC = () => {
@@ -256,9 +257,77 @@ const EnvironmentSection: React.FC = () => {
               {/* Note */}
               <div className="mt-4 p-4 bg-green-50 rounded-lg">
                 <p className="text-sm font-medium text-green-800">
-                  ✓ Scope 1 & 2 included in verification boundary
+                  Historical 2024 and FY2025 inventory data are shown separately. A year-on-year reduction is not claimed until reporting boundaries and methodologies are confirmed comparable.
                 </p>
               </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { label: 'Scope 1', value: ghgInventory2025.scope1, color: bhsColors.esgGreen },
+                { label: 'Scope 2', value: ghgInventory2025.scope2Location, color: bhsColors.accentOrange },
+                { label: 'Scope 3', value: ghgInventory2025.scope3, color: bhsColors.primaryDark },
+                { label: 'Total GHG emissions', value: ghgInventory2025.total, color: bhsColors.neutralGrey }
+              ].map((card) => (
+                <div key={card.label} className="bg-white rounded-xl p-5 shadow-lg border-t-4" style={{ borderTopColor: card.color }}>
+                  <div className="text-sm text-gray-600">{card.label}</div>
+                  <div className="text-2xl font-bold mt-1" style={{ color: card.color }}>{card.value.toFixed(2)} tCO₂e</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white rounded-xl p-5 shadow-lg">
+                <div className="text-sm text-gray-600">Scope 1 + Scope 2</div>
+                <div className="text-2xl font-bold mt-1" style={{ color: bhsColors.esgGreen }}>{ghgInventory2025.scope1And2.toFixed(2)} tCO₂e</div>
+              </div>
+              <div className="bg-white rounded-xl p-5 shadow-lg">
+                <div className="text-sm text-gray-600">Scope 2 reporting</div>
+                <div className="text-sm mt-2">Location-based: <strong>{ghgInventory2025.scope2Location.toFixed(2)} tCO₂e</strong></div>
+                <div className="text-sm">Market-based: <strong>{ghgInventory2025.scope2Market.toFixed(2)} tCO₂e</strong></div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg">
+              <h3 className="text-lg md:text-xl font-semibold mb-4">FY2025 Scope 3 category breakdown</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <BarChart
+                  title="Reported Scope 3 Categories (tCO₂e)"
+                  data={ghgInventory2025.scope3Categories
+                    .filter((category) => category.emissions > 0)
+                    .map((category) => ({
+                      label: `Category ${category.category}`,
+                      value: category.emissions,
+                      color: category.category === 1 ? bhsColors.esgGreen : category.category === 2 ? bhsColors.accentOrange : bhsColors.primaryDark
+                    }))}
+                  height={360}
+                />
+                <div className="border border-gray-200 rounded-lg divide-y max-h-[360px] overflow-y-auto">
+                  {ghgInventory2025.scope3Categories.map((category) => (
+                    <details key={category.category} className="p-3">
+                      <summary className="cursor-pointer flex justify-between gap-3 font-medium">
+                        <span>Category {category.category} – {category.description}</span>
+                        <span className="whitespace-nowrap">{category.emissions.toFixed(2)} tCO₂e</span>
+                      </summary>
+                      <div className="mt-3 space-y-2 text-xs md:text-sm text-gray-700">
+                        <p><strong>Method:</strong> {category.method}</p>
+                        {category.sources && (
+                          <div className="space-y-1">
+                            {category.sources.map((source) => (
+                              <div key={source.label} className="flex justify-between gap-3">
+                                <span>{source.label}</span>
+                                <span className="font-medium whitespace-nowrap">{source.emissions.toFixed(2)} tCO₂e</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        {category.details?.map((detail) => <p key={detail}>{detail}</p>)}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+              <p className="mt-4 text-xs text-gray-500">The seven reported categories sum to 4,289.48 tCO₂e. Categories 8–15 are disclosed with a limitation or boundary explanation.</p>
             </div>
 
             {/* ================= DOCUMENTS ================= */}
@@ -322,6 +391,19 @@ const EnvironmentSection: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: bhsColors.esgGreen }}>
+                <div className="text-sm text-gray-600">FY2025 Scope 1</div>
+                <div className="text-3xl font-bold" style={{ color: bhsColors.esgGreen }}>{ghgInventory2025.scope1.toFixed(2)} tCO₂e</div>
+              </div>
+              <div className="lg:col-span-2 p-4 bg-blue-50 rounded-lg text-sm text-blue-900">
+                Scope 1 emissions primarily arise from diesel combustion in BHS-owned and operationally controlled logistics fleet, including prime movers, lorries and transport vehicles supporting logistics, transportation and project services. Other tracker sources are reported as zero.
+              </div>
+              <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: bhsColors.accentOrange }}>
+                <div className="text-sm text-gray-600">FY2025 Diesel consumption</div>
+                <div className="text-3xl font-bold" style={{ color: bhsColors.accentOrange }}>{ghgInventory2025.dieselLitres.toLocaleString()} litres</div>
+              </div>
+            </div>
             <div className="bg-white rounded-xl p-4 md:p-8 shadow-lg">
               <BarChart
                 title="Diesel Consumption Comparison"
@@ -415,6 +497,24 @@ const EnvironmentSection: React.FC = () => {
               Waste Management
             </h2>
           </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-white rounded-xl p-4 shadow-lg">
+              <div className="text-sm text-gray-600">FY2025 Scope 3 Category 5</div>
+              <div className="text-2xl font-bold text-green-700">110.69 tCO₂e</div>
+            </div>
+            <div className="bg-white rounded-xl p-4 shadow-lg">
+              <div className="text-sm text-gray-600">Wooden waste recycled</div>
+              <div className="text-xl font-bold">87.28 tCO₂e</div>
+            </div>
+            <div className="bg-white rounded-xl p-4 shadow-lg">
+              <div className="text-sm text-gray-600">Disposal and general rubbish</div>
+              <div className="text-xl font-bold">23.41 tCO₂e</div>
+            </div>
+          </div>
+          <p className="text-xs md:text-sm text-gray-600 bg-green-50 p-3 rounded-lg">
+            Activity quantities: 12,722.33 tonnes wooden waste and 361.696 tonnes general rubbish. The recycling/disposal proportions use an estimated historical proxy, not a complete FY2025 treatment-facility breakdown.
+          </p>
 
           {/* Monthly Data Table with Chart Side-by-Side */}
           <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg">
@@ -511,6 +611,29 @@ const EnvironmentSection: React.FC = () => {
           Energy Management
         </h2>
       </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-white rounded-xl p-4 shadow-lg">
+          <div className="text-sm text-gray-600">FY2025 Scope 2</div>
+          <div className="text-xl font-bold text-blue-700">{ghgInventory2025.scope2Location.toFixed(2)} tCO₂e</div>
+          <div className="text-xs text-gray-500 mt-1">Location-based</div>
+        </div>
+        <div className="bg-white rounded-xl p-4 shadow-lg">
+          <div className="text-sm text-gray-600">Grid electricity purchased</div>
+          <div className="text-xl font-bold">{ghgInventory2025.gridKwh.toLocaleString()} kWh</div>
+        </div>
+        <div className="bg-white rounded-xl p-4 shadow-lg">
+          <div className="text-sm text-gray-600">Solar electricity generated</div>
+          <div className="text-xl font-bold text-green-700">{ghgInventory2025.solarKwh.toLocaleString()} kWh</div>
+        </div>
+        <div className="bg-white rounded-xl p-4 shadow-lg">
+          <div className="text-sm text-gray-600">Market-based emissions</div>
+          <div className="text-xl font-bold">{ghgInventory2025.scope2Market.toFixed(2)} tCO₂e</div>
+        </div>
+      </div>
+      <p className="text-xs md:text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
+        Scope 2 emissions arise from purchased electricity consumed at BHS offices, warehouses and operational facilities supporting logistics, transportation, warehousing and project operations. Grid electricity and solar generation are shown separately and are not added together.
+      </p>
 
       <div className="bg-white rounded-xl p-4 md:p-6 shadow-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">

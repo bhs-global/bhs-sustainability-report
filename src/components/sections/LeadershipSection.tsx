@@ -62,19 +62,19 @@ const LeadershipSection: React.FC = () => {
                   
                   <div className="text-center p-5 sm:p-6 bg-green-50 rounded-xl">
                     <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-2">
-                      -7.7%
+                        3,860.96
                     </div>
                     <div className="text-xs sm:text-sm text-gray-600">
-                      Scope 1+2 Emissions Reduction vs 2023
+                        FY2025 Scope 1 + 2 tCO₂e
                     </div>
                   </div>
 
                   <div className="text-center p-5 sm:p-6 bg-blue-50 rounded-xl">
                     <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">
-                      100%
+                        4,289.48
                     </div>
                     <div className="text-xs sm:text-sm text-gray-600">
-                      Grievance Resolution Rate
+                        FY2025 Scope 3 tCO₂e
                     </div>
                   </div>
 
@@ -135,10 +135,10 @@ const LeadershipSection: React.FC = () => {
                 
                 <div className="p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
                   <h4 className="font-semibold text-orange-800 mb-2 text-sm sm:text-base">
-                    Verification Boundary
+                    Reporting Boundary
                   </h4>
                   <p className="text-orange-700 text-xs sm:text-sm">
-                    Scope 1 & 2 emissions included in third-party verification process.
+                    External verification status: To be confirmed.
                   </p>
                 </div>
 
@@ -151,13 +151,13 @@ const LeadershipSection: React.FC = () => {
               <div className="flex items-center gap-4 mb-6">
                 <Target className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
                 <h3 className="text-xl sm:text-2xl font-bold">
-                  Key Achievements 2024
+                  Historical Achievements 2024
                 </h3>
               </div>
               
               <div className="space-y-4">
                 {[
-                  { metric: 'GHG Emissions', value: '-7.7%', description: 'Scope 1+2 reduction vs 2023' },
+                  { metric: 'GHG Emissions', value: 'FY2024', description: 'Historical Scope 1+2 data retained separately' },
                   { metric: 'Female Workforce', value: '14.7%', description: 'Up from 9% in 2023' },
                   { metric: 'Safety Incidents', value: '-16.7%', description: 'Reduction from 42 to 35' },
                   { metric: 'Training Investment', value: 'SGD 38.6K', description: 'Employee development' }

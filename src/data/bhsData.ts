@@ -65,12 +65,12 @@ export const ghgEmissions = {
 
 export const ghgEmissions3Y = {
   2024: { scope1: 1403.9, scope2: 308.49, scope3: 7616.29 },
-  2025: { scope1: 2566.34, scope2: 1187.81, scope3: 0 }
+  2025: { scope1: 2569.72, scope2: 1291.24, scope3: 4289.48 }
 };
 
 export const ghgTotals3Y = {
   2024: 9328.68,
-  2025: 462
+  2025: 8150.44
 };
 
 export const quarterlyPerformance = {

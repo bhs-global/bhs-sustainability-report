@@ -299,7 +299,7 @@ export function generateAllPagesHTML() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BHS ESG Report 2024 - Complete Report</title>
+    <title>BHS Sustainability Report 2025 - Complete Report</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -702,7 +702,7 @@ function generateCompleteHTML(allPages: Array<{ sectionId: string; pageIndex: nu
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BHS ESG Report 2024 - Complete Report</title>
+    <title>BHS Sustainability Report 2025 - Complete Report</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
