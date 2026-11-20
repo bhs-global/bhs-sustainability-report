@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { bhsColors, grievanceData, documents } from '../../data/bhsData';
+import { ghgInventory2025 } from '../../data/ghgInventory2025';
 import BarChart from '../charts/BarChart';
 import { Download, Shield, FileText, CheckCircle, Scale, Gavel } from 'lucide-react';
 
 const GovernanceSection: React.FC = () => {
   const [activePage, setActivePage] = useState(0);
+  const reportedScope3Categories = ghgInventory2025.scope3Categories.filter(
+    (category) => category.emissions > 0
+  );
 
   const pages = [
     {
@@ -119,7 +123,7 @@ const GovernanceSection: React.FC = () => {
                   style={{ backgroundColor: bhsColors.esgGreen }}
                 >
                   <Download className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Download Environmental, Labour & Human Rights Report
+                  Download 2024 - Environmental, Labour & Human Rights Report
                 </a>
               </div>
             </div>
@@ -143,40 +147,39 @@ const GovernanceSection: React.FC = () => {
                 Scope 3 Emissions Reporting
               </h3>
               <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-                Comprehensive reporting across all Scope 3 categories using DEFRA-aligned methodology
+                FY2025 emissions are reported for 7 of the 15 assessed Scope 3 categories.
               </p>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-              {[
-                { category: 'Category 1', name: 'Purchased Goods', value: '2,847.3', unit: 'tCO₂e' },
-                { category: 'Category 2', name: 'Capital Goods', value: '1,234.5', unit: 'tCO₂e' },
-                { category: 'Category 3', name: 'Fuel & Energy', value: '456.7', unit: 'tCO₂e' },
-                { category: 'Category 4', name: 'Upstream Transport', value: '789.2', unit: 'tCO₂e' },
-                { category: 'Category 5', name: 'Waste Generated', value: '123.4', unit: 'tCO₂e' },
-                { category: 'Category 6', name: 'Business Travel', value: '2,165.1', unit: 'tCO₂e' }
-              ].map((item, index) => (
+              {reportedScope3Categories.map((item) => (
                 <div
-                  key={index}
+                  key={item.category}
                   className="p-5 sm:p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200"
                 >
                   <div className="text-xs sm:text-sm font-medium text-gray-500 mb-1">
-                    {item.category}
+                    Category {item.category}
                   </div>
                   <div className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
-                    {item.name}
+                    {item.description}
                   </div>
                   <div
                     className="text-xl sm:text-2xl font-bold"
                     style={{ color: bhsColors.esgGreen }}
                   >
-                    {item.value}{' '}
-                    <span className="text-xs sm:text-sm text-gray-600">
-                      {item.unit}
-                    </span>
+                    {item.emissions.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}{' '}
+                    <span className="text-xs sm:text-sm text-gray-600">tCO₂e</span>
                   </div>
                 </div>
               ))}
+              <div className="p-5 sm:p-6 bg-green-50 rounded-xl border border-green-200">
+                <div className="text-xs sm:text-sm font-medium text-green-800 mb-1">FY2025 Total Scope 3</div>
+                <div className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Reported emissions</div>
+                <div className="text-xl sm:text-2xl font-bold" style={{ color: bhsColors.esgGreen }}>
+                  {ghgInventory2025.scope3.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}{' '}
+                  <span className="text-xs sm:text-sm text-gray-600">tCO₂e</span>
+                </div>
+              </div>
             </div>
             
             <div className="bg-blue-50 rounded-xl p-5 sm:p-6 border border-blue-200">
@@ -189,10 +192,9 @@ const GovernanceSection: React.FC = () => {
                     Methodology & Verification Status
                   </h4>
                   <ul className="text-blue-800 text-xs sm:text-sm space-y-1">
-                    <li>• DEFRA emission factors applied for all categories</li>
-                    <li>• Scope 3 emissions reported but not included in verification boundary</li>
-                    <li>• Data collection systems established for continuous improvement</li>
-                    <li>• Annual review and update of emission factors</li>
+                    <li>• Emissions reported for 7 of the 15 assessed categories</li>
+                    <li>• Activity-based and spend-based estimates used where appropriate</li>
+                    <li>• Categories with zero reported emissions retain their assessment notes</li>
                   </ul>
                 </div>
               </div>

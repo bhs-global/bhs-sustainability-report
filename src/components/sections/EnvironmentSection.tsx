@@ -28,6 +28,7 @@ const EnvironmentSection: React.FC = () => {
 
   // months array (use energy as canonical - all 3Y arrays have same months)
   const months = energyMonthlyData3Y.map((m) => m.month);
+  const formatKwh = (value: number) => Math.round(value).toLocaleString();
 
   // helpers to fetch month-value by year and index
   const energyValue = (year: 2023 | 2024 | 2025, idx: number) =>
@@ -340,7 +341,7 @@ const EnvironmentSection: React.FC = () => {
                   style={{ backgroundColor: bhsColors.esgGreen }}
                 >
                   <Download className="w-3 h-3 md:w-4 md:h-4" />
-                  AIR POLLUTANT INVENTORY REPORT
+                  Air Pollutant Inventory Report 2024
                 </a>
 
                 <a
@@ -363,7 +364,16 @@ const EnvironmentSection: React.FC = () => {
                   style={{ backgroundColor: bhsColors.esgGreen }}
                 >
                   <Download className="w-3 h-3 md:w-4 md:h-4" />
-                  GHG EMISSIONS INVENTORY REPORT 2025
+                  GHG EMISSIONS INVENTORY REPORT 2025 (PDF)
+                </a>
+                <a
+                  href={documents.ghgVerification2025}
+                  download
+                  className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm w-full md:w-auto justify-center"
+                  style={{ backgroundColor: bhsColors.primaryDark }}
+                >
+                  <Download className="w-3 h-3 md:w-4 md:h-4" />
+                  FY2025 GHG EMISSIONS INVENTORY VERIFICATION REPORT
                 </a>
               </div>
             </div>
@@ -458,28 +468,6 @@ const EnvironmentSection: React.FC = () => {
                 >
                   <Download className="w-3 h-3 md:w-4 md:h-4" />
                   Download GHG Reduction Plan
-                </a>
-                <a
-                  href={documents.fuelData}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm"
-                  style={{ backgroundColor: bhsColors.accentOrange }}
-                >
-                  <Download className="w-3 h-3 md:w-4 md:h-4" />
-                  Download Fuel Consumption Data
-                </a>
-                <a
-                  href={documents.scope2Emission}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg text-white hover:opacity-90 transition-opacity text-xs md:text-sm"
-                  style={{ backgroundColor: bhsColors.primaryDark }}
-                >
-                  <Download className="w-3 h-3 md:w-4 md:h-4" />
-                  Download Scope 2 Emission Data
                 </a>
               </div>
             </div>
@@ -620,11 +608,11 @@ const EnvironmentSection: React.FC = () => {
         </div>
         <div className="bg-white rounded-xl p-4 shadow-lg">
           <div className="text-sm text-gray-600">Grid electricity purchased</div>
-          <div className="text-xl font-bold">{ghgInventory2025.gridKwh.toLocaleString()} kWh</div>
+          <div className="text-xl font-bold">{formatKwh(ghgInventory2025.gridKwh)} kWh</div>
         </div>
         <div className="bg-white rounded-xl p-4 shadow-lg">
           <div className="text-sm text-gray-600">Solar electricity generated</div>
-          <div className="text-xl font-bold text-green-700">{ghgInventory2025.solarKwh.toLocaleString()} kWh</div>
+          <div className="text-xl font-bold text-green-700">{formatKwh(ghgInventory2025.solarKwh)} kWh</div>
         </div>
         <div className="bg-white rounded-xl p-4 shadow-lg">
           <div className="text-sm text-gray-600">Market-based emissions</div>
@@ -690,24 +678,24 @@ const EnvironmentSection: React.FC = () => {
 
                     {/* Grid */}
                     <td className="border border-gray-300 px-2 py-1 text-center">
-                      {energyValue(2023, index).toLocaleString()}
+                      {formatKwh(energyValue(2023, index))}
                     </td>
                     <td className="border border-gray-300 px-2 py-1 text-center">
-                      {energyValue(2024, index).toLocaleString()}
+                      {formatKwh(energyValue(2024, index))}
                     </td>
                     <td className="border border-gray-300 px-2 py-1 text-center">
-                      {energyValue(2025, index).toLocaleString()}
+                      {formatKwh(energyValue(2025, index))}
                     </td>
 
                     {/* Solar */}
                     <td className="border border-gray-300 px-2 py-1 text-center">
-                      {solarValue(2023, index).toLocaleString()}
+                      {formatKwh(solarValue(2023, index))}
                     </td>
                     <td className="border border-gray-300 px-2 py-1 text-center">
-                      {solarValue(2024, index).toLocaleString()}
+                      {formatKwh(solarValue(2024, index))}
                     </td>
                     <td className="border border-gray-300 px-2 py-1 text-center">
-                      {solarValue(2025, index).toLocaleString()}
+                      {formatKwh(solarValue(2025, index))}
                     </td>
                   </tr>
                 ))}
@@ -717,23 +705,23 @@ const EnvironmentSection: React.FC = () => {
                   <td className="border border-gray-300 px-2 py-1">Total</td>
 
                   <td className="border border-gray-300 px-2 py-1 text-center">
-                    {energyTotals3Y[2023].toLocaleString()}
+                    {formatKwh(energyTotals3Y[2023])}
                   </td>
                   <td className="border border-gray-300 px-2 py-1 text-center">
-                    {energyTotals3Y[2024].toLocaleString()}
+                    {formatKwh(energyTotals3Y[2024])}
                   </td>
                   <td className="border border-gray-300 px-2 py-1 text-center">
-                    {energyTotals3Y[2025].toLocaleString()}
+                    {formatKwh(energyTotals3Y[2025])}
                   </td>
 
                   <td className="border border-gray-300 px-2 py-1 text-center">
-                    {solarTotals3Y[2023].toLocaleString()}
+                    {formatKwh(solarTotals3Y[2023])}
                   </td>
                   <td className="border border-gray-300 px-2 py-1 text-center">
-                    {solarTotals3Y[2024].toLocaleString()}
+                    {formatKwh(solarTotals3Y[2024])}
                   </td>
                   <td className="border border-gray-300 px-2 py-1 text-center">
-                    {solarTotals3Y[2025].toLocaleString()}
+                    {formatKwh(solarTotals3Y[2025])}
                   </td>
                 </tr>
               </tbody>
@@ -748,18 +736,18 @@ const EnvironmentSection: React.FC = () => {
   data={[
     {
       label: '2023',
-      grid: energyTotals3Y[2023],
-      solar: solarTotals3Y[2023]
+      grid: Math.round(energyTotals3Y[2023]),
+      solar: Math.round(solarTotals3Y[2023])
     },
     {
       label: '2024',
-      grid: energyTotals3Y[2024],
-      solar: solarTotals3Y[2024]
+      grid: Math.round(energyTotals3Y[2024]),
+      solar: Math.round(solarTotals3Y[2024])
     },
     {
       label: '2025',
-      grid: energyTotals3Y[2025],
-      solar: solarTotals3Y[2025]
+      grid: Math.round(energyTotals3Y[2025]),
+      solar: Math.round(solarTotals3Y[2025])
     }
   ]}
   series={[
@@ -879,7 +867,7 @@ const EnvironmentSection: React.FC = () => {
                 >
                   <Download className="w-4 h-4 md:w-5 md:h-5 text-green-600 flex-shrink-0" />
                   <div className="min-w-0">
-                    <div className="font-medium text-sm md:text-base">Waste Management Report</div>
+                    <div className="font-medium text-sm md:text-base">Waste Management Report-2024</div>
                     <div className="text-xs md:text-sm text-gray-600">Comprehensive waste analysis</div>
                   </div>
                 </a>
@@ -892,7 +880,7 @@ const EnvironmentSection: React.FC = () => {
                 >
                   <Download className="w-4 h-4 md:w-5 md:h-5 text-orange-600 flex-shrink-0" />
                   <div className="min-w-0">
-                    <div className="font-medium text-sm md:text-base">Air Pollutant Report</div>
+                    <div className="font-medium text-sm md:text-base">Air Pollutant Inventory Report 2024</div>
                     <div className="text-xs md:text-sm text-gray-600">Air quality monitoring data</div>
                   </div>
                 </a>
@@ -913,32 +901,6 @@ const EnvironmentSection: React.FC = () => {
                   <div className="min-w-0">
                     <div className="font-medium text-sm md:text-base">GHG Reduction Plan</div>
                     <div className="text-xs md:text-sm text-gray-600">Emission reduction strategy</div>
-                  </div>
-                </a>
-                <a
-                  href={documents.fuelData}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  <Download className="w-4 h-4 md:w-5 md:h-5 text-orange-600 flex-shrink-0" />
-                  <div className="min-w-0">
-                    <div className="font-medium text-sm md:text-base">Fuel Consumption Data</div>
-                    <div className="text-xs md:text-sm text-gray-600">Fleet performance metrics</div>
-                  </div>
-                </a>
-                <a
-                  href={documents.scope2Emission}
-                  download
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 md:gap-3 p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                >
-                  <Download className="w-4 h-4 md:w-5 md:h-5 text-blue-600 flex-shrink-0" />
-                  <div className="min-w-0">
-                    <div className="font-medium text-sm md:text-base">Scope 2 Emission Data</div>
-                    <div className="text-xs md:text-sm text-gray-600">Energy-related emissions</div>
                   </div>
                 </a>
               </div>

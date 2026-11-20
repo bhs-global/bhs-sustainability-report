@@ -244,10 +244,10 @@ export const metrics: MetricCategory[] = [
         id: 'gender',
         icon: Users,
         title: 'Gender Distribution',
-        value: 'Male: 85% | Female: 15%',
-        subtitle: '2023 vs 2024',
-        details: 'Gender distribution showing improvement in female representation from 9% to 15%.',
-        trend: 15,
+        value: 'Male: 94.6% | Female: 5.4%',
+        subtitle: '2025',
+        details: 'FY2025 gender distribution: 384 male and 22 female employees out of 406.',
+        trend: 5.4,
         target: 25,
         documents: [
           {
@@ -266,10 +266,10 @@ export const metrics: MetricCategory[] = [
         id: 'identification',
         icon: UserCheck,
         title: 'Employee Origin',
-        value: 'Local: 46% | Foreign: 54%',
-        subtitle: '2023 vs 2024',
-        details: 'Distribution of local vs foreign employees showing increased diversity.',
-        trend: 54,
+        value: 'Local: 40.6% | Foreign: 59.4%',
+        subtitle: '2025',
+        details: 'FY2025 employee origin: 165 local and 241 foreign employees out of 406.',
+        trend: 59.4,
         target: 50,
         documents: [
           {
@@ -288,10 +288,10 @@ export const metrics: MetricCategory[] = [
         id: 'employment',
         icon: UserCog,
         title: 'Employment Type',
-        value: 'Permanent: 99% | Contract: 1%',
-        subtitle: '2023 vs 2024',
-        details: 'Distribution of employment types showing stability in permanent positions.',
-        trend: 99,
+        value: 'Permanent: 97.8% | Contract: 2.2%',
+        subtitle: '2025',
+        details: 'FY2025 employment type: 397 permanent and 9 contract employees out of 406.',
+        trend: 97.8,
         target: 95,
         documents: [
           {
@@ -333,8 +333,8 @@ export const metrics: MetricCategory[] = [
         icon: Users,
         title: 'Age Distribution',
         value: 'Balanced across age groups',
-        subtitle: '2023 vs 2024',
-        details: '20-30: 18%, 31-40: 23%, 41-50: 13%, 51-60: 6%, 61-70: 2%, 71-80: 0%',
+        subtitle: '2025',
+        details: 'FY2025 employee count by age: 18-19: 3, 20-25: 24, 26-30: 51, 31-35: 86, 36-40: 89, 41-45: 59, 46-50: 38, 51-55: 24, 56-60: 20, 61-65: 10, 66-70: 1, 71-75: 0, 76-80: 1.',
         documents: [
           {
             name: 'Age Demographics Report',

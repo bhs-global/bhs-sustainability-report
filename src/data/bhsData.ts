@@ -41,7 +41,7 @@ export const kpiCards: KPICard[] = [
   {
     title: 'Total Employees',
     value: '406',
-    trend: 5.2
+    trend: 4.6
   },
   {
     title: 'Total Waste (2024)',
@@ -102,8 +102,8 @@ export const airPollutants = {
 
 export const workforceData = {
   totalEmployees: 406,
-  femalePercentage: 14.7,
-  localWorkforce: 46,
+  femalePercentage: 5.4,
+  localWorkforce: 40.6,
   incidents2023: 42,
   incidents2024: 35,
   incidents2025: 28
@@ -124,8 +124,9 @@ export const grievanceData = {
 };
 
 export const genderData = {
-  2023: { male: 85.3, female: 14.7 },
-  2024: { male: 85.30, female: 14.70 }
+  2023: { male: 90.8, female: 9.2 },
+  2024: { male: 89.2, female: 10.8 },
+  2025: { male: 94.6, female: 5.4 }
 };
 
 export const pmetData = {
@@ -303,7 +304,7 @@ export const waterTotals3Y = {
 
 export const workforceGender3Y = {
   2023: { female: 34, male: 334, total: 368 },
-  2024: { female: 60, male: 348, total: 408 },
+  2024: { female: 42, male: 346, total: 388 },
   2025: { female: 22, male: 384, total: 406 }
 };
 
@@ -313,7 +314,7 @@ export const nationalityPercentage = [
   { name: 'Chinese', value: 13 },
   { name: 'Indian', value: 7 },
   {
-    name: 'Others (Bangladeshi, Vietnamese, Taiwanese, Myanmar, Filipino, Indonesian)',
+    name: 'Others (Bangladeshi, Vietnamese, Taiwanese, Burmese, Filipino, Indonesian)',
     value: 10
   }
 ];
@@ -321,20 +322,20 @@ export const nationalityPercentage = [
 
 export const workforceIdentification3Y = {
   2023: { local: 181, foreigner: 187, total: 368 },
-  2024: { local: 187, foreigner: 221, total: 408 },
+  2024: { local: 172, foreigner: 216, total: 388 },
   2025: { local: 165, foreigner: 241, total: 406 }
 };
 
 export const workforceEmploymentType3Y = {
   2023: { permanent: 366, contract: 2, total: 368 },
-  2024: { permanent: 402, contract: 6, total: 408 },
+  2024: { permanent: 386, contract: 2, total: 388 },
   2025: { permanent: 397, contract: 9, total: 406 }
 };
 
 export const workforceAgeGroup3Y = {
-  2023: { "18-19": 0, "20-30": 69, "31-40": 150, "41-50": 88, "51-60": 53, "61-70": 7, "71-80": 1, total: 368 },
-  2024: { "18-19": 0, "20-30": 90, "31-40": 157, "41-50": 86, "51-60": 47, "61-70": 7, "71-80": 1, total: 388 },
-  2025: { "18-19": 3, "20-30": 75, "31-40": 175, "41-50": 97, "51-60": 44, "61-70": 11, "71-80": 1, total: 406 }
+  2023: { "18-19": 0, "20-25": 15, "26-30": 54, "31-35": 67, "36-40": 83, "41-45": 51, "46-50": 37, "51-55": 27, "56-60": 26, "61-65": 6, "66-70": 1, "71-75": 0, "76-80": 1, total: 368 },
+  2024: { "18-19": 0, "20-25": 22, "26-30": 68, "31-35": 69, "36-40": 88, "41-45": 51, "46-50": 35, "51-55": 22, "56-60": 25, "61-65": 6, "66-70": 1, "71-75": 0, "76-80": 1, total: 388 },
+  2025: { "18-19": 3, "20-25": 24, "26-30": 51, "31-35": 86, "36-40": 89, "41-45": 59, "46-50": 38, "51-55": 24, "56-60": 20, "61-65": 10, "66-70": 1, "71-75": 0, "76-80": 1, total: 406 }
 };
 
 const publicAsset = (filename: string) =>
@@ -342,16 +343,13 @@ const publicAsset = (filename: string) =>
 
 export const documents = {
   ghgInventory2024: publicAsset('BHS-IMS-ECO-37_-_GHG_EMISSIONS_INVENTORY_REPORT_2024.pdf'),
-  ghgInventory2025: publicAsset('BHS-IMS-ECO-37_-_GHG_EMISSIONS_INVENTORY_REPORT_2025.docx'),
+  ghgInventory2025: publicAsset('BHS-IMS-ECO-37_GHG_Emissions_Inventory_Report_FY2025_20261119.pdf'),
+  ghgVerification2025: publicAsset('BHS-GHG-Emissions-Inventory-Verification-Report-FY2025-Signed.pdf'),
   reductionPlan: publicAsset('BHS-IMS-ECO-34-ESG-GHG-Reduction-Plan.pdf'),
   livingWage: publicAsset('BHS-IMS-ECO-36_-_LIVING_WAGE_MEASURES.pdf'),
   wasteReport: publicAsset('BHS-IMS-ECO-35_-_NON_HAZARDOUS_WASTE_INVENTORY_REPORT.pdf'),
-  airPollutant: publicAsset('BHS-IMS-ECO-38_-_AIR_POLLUTANT_INVENTORY_REPORT.pdf'),
+  airPollutant: publicAsset('BHS-IMS-ECO-38_-_AIR_POLLUTANT_INVENTORY_REPORT_2024.pdf'),
   esgReporting: publicAsset('BHS-IMS-ECO-33_-_ENVIRONMENTAL,_LABOUR_AND_HUMAN_RIGHTS,_ETHICS_REPORTING.pdf'),
-  fuelData: publicAsset('JAN_2024_TO_APRIL_2024_FUEL_CONSUMPTION_DATA.xlsx'),
-  scope2Emission: publicAsset('BHS-Kinetic_Scope_2_Emission_2024_1.xlsx'),
-  iso14064: publicAsset('BHS-Kinetic-ISO14064-1---2024_1.xlsx'),
-  ghgProgress: publicAsset('BHS-IMS-ECO-32-GHG_Reduction_Progress_Summary.pdf'),
   environmentalprincipalendorsment: publicAsset('BHS_Environmental_Principles_Endorsement_Statement.pdf'),
-  airpollutant: publicAsset('BHS-IMS-ECO-38_-_AIR_POLLUTANT_INVENTORY_REPORT.pdf')
+  airpollutant: publicAsset('BHS-IMS-ECO-38_-_AIR_POLLUTANT_INVENTORY_REPORT_2024.pdf')
 }

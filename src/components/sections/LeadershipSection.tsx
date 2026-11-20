@@ -135,12 +135,42 @@ const LeadershipSection: React.FC = () => {
                 </div>
                 
                 <div className="p-4 bg-orange-50 rounded-xl border-l-4 border-orange-500">
-                  <h4 className="font-semibold text-orange-800 mb-2 text-sm sm:text-base">
-                    Reporting Boundary
+                  <h4 className="font-semibold text-orange-800 mb-3 text-sm sm:text-base">
+                    Boundaries of Reporting and Limitations
                   </h4>
-                  <p className="text-orange-700 text-xs sm:text-sm">
-                    External verification status: To be confirmed.
-                  </p>
+                  <div className="space-y-2 text-orange-900 text-xs sm:text-sm">
+                    <p><strong>Reporting period:</strong> 01 Jan 2025 – 31 Dec 2025</p>
+                    <p>
+                      <strong>Organizational boundary:</strong> B H S Kinetic Pte Ltd comprises four warehouses and one main office building in Singapore.
+                    </p>
+                    <div className="overflow-x-auto rounded-lg border border-orange-200 bg-white">
+                      <table className="w-full text-left text-[11px] sm:text-xs">
+                        <thead className="bg-orange-100">
+                          <tr>
+                            <th className="px-2 py-1.5 font-semibold">Location</th>
+                            <th className="px-2 py-1.5 font-semibold">Facility</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-orange-100">
+                          {[
+                            ['10 Pandan Rd, Singapore 609258', 'Main Office Building'],
+                            ['2 Tanjong Penjuru, Singapore 609017', 'CSC – Warehouse'],
+                            ['46A Tanjong Penjuru, Singapore 609040', 'ESR-REIT – Warehouse'],
+                            ['750A Chai Chee Rd, #05-01, Singapore 469001', 'C&W Services – Warehouse'],
+                            ['21 Pandan Ave, #05-08, Singapore 609388', 'Senkee Logistic – Warehouse']
+                          ].map(([location, facility]) => (
+                            <tr key={location}>
+                              <td className="px-2 py-1.5">{location}</td>
+                              <td className="px-2 py-1.5">{facility}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <p>
+                      <strong>Operational boundary:</strong> GHG emission sources and streams associated with operations controlled by B H S Kinetic Pte Ltd, using the operational-control approach.
+                    </p>
+                  </div>
                 </div>
 
               </div>
@@ -159,9 +189,9 @@ const LeadershipSection: React.FC = () => {
               <div className="space-y-4">
                 {[
                   { metric: 'FY2025 Scope 1 + 2', value: `${ghgInventory2025.scope1And2.toFixed(2)} tCO₂e`, description: 'FY2025 inventory; Scope 3 shown separately' },
-                  { metric: 'FY2025 Scope 3', value: `${ghgInventory2025.scope3.toFixed(2)} tCO₂e`, description: 'Assessment across all 15 Scope 3 categories' },
+                  { metric: 'FY2025 Scope 3', value: `${ghgInventory2025.scope3.toFixed(2)} tCO₂e`, description: 'Assessment across 7 out 15 Scope 3 Categories' },
                   { metric: 'FY2025 Total GHG', value: `${ghgInventory2025.total.toFixed(2)} tCO₂e`, description: 'Scope 1 + 2 location-based plus Scope 3' },
-                  { metric: 'Female Workforce', value: '14.7%', description: 'Up from 9% in 2023' },
+                  { metric: 'Female Workforce', value: '5.4%', description: '22 of 406 employees in FY2025' },
                   { metric: 'Safety Incidents', value: '-16.7%', description: 'Reduction from 42 to 35' },
                   { metric: 'Training Investment', value: 'SGD 38.6K', description: 'Employee development' }
                 ].map((item, index) => (
@@ -194,19 +224,16 @@ const LeadershipSection: React.FC = () => {
                   style={{ backgroundColor: bhsColors.esgGreen }}
                 >
                   <Download className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Download GHG Emissions Inventory Report
+                  Download FY2025 GHG Emissions Inventory Report (PDF)
                 </a>
-
                 <a
-                  href={documents.iso14064}
+                  href={documents.ghgVerification2025}
                   download
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl text-white text-sm sm:text-base font-medium hover:opacity-90 transition-opacity w-full justify-center"
                   style={{ backgroundColor: bhsColors.primaryDark }}
                 >
                   <Download className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Download ISO 14064-1 Report
+                  Download FY2025 GHG Emissions Inventory Verification Report
                 </a>
               </div>
             </div>

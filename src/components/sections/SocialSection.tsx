@@ -27,6 +27,9 @@ const SocialSection: React.FC = () => {
     employment: workforceEmploymentType3Y,
     ageGroup: workforceAgeGroup3Y
   };
+  const ageGroup31To40 = (year: keyof typeof workforceDataExtended.ageGroup) =>
+    workforceDataExtended.ageGroup[year]['31-35'] +
+    workforceDataExtended.ageGroup[year]['36-40'];
 
   const pages = [
     {
@@ -64,7 +67,7 @@ const SocialSection: React.FC = () => {
               <div className="text-4xl font-bold mb-2 print:text-3xl" style={{ color: bhsColors.accentOrange }}>
                 {workforceData.femalePercentage}%
               </div>
-              <p className="text-gray-600 print:text-sm">Up from 9% in 2023</p>
+              <p className="text-gray-600 print:text-sm">2023: 9.2% | 2024: 10.8%</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-lg print:p-4">
@@ -353,9 +356,9 @@ const SocialSection: React.FC = () => {
                 <BarChart
                   title="Age Group 31-40 Distribution (Employees)"
                   data={[
-                    { label: '2023', value: workforceDataExtended.ageGroup[2023]['31-40'], color: bhsColors.neutralGrey },
-                    { label: '2024', value: workforceDataExtended.ageGroup[2024]['31-40'], color: bhsColors.accentOrange },
-                    { label: '2025', value: workforceDataExtended.ageGroup[2025]['31-40'], color: bhsColors.esgGreen }
+                    { label: '2023', value: ageGroup31To40(2023), color: bhsColors.neutralGrey },
+                    { label: '2024', value: ageGroup31To40(2024), color: bhsColors.accentOrange },
+                    { label: '2025', value: ageGroup31To40(2025), color: bhsColors.esgGreen }
                   ]}
                   height={400}
                 />

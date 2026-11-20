@@ -156,7 +156,6 @@ const BarChart: React.FC<BarChartProps> = ({
                       const barX =
                         groupStartX +
                         sIndex * singleBarWidth;
-
                       return (
                         <g key={s.key}>
                           <rect

@@ -23,7 +23,7 @@ const AssuranceSection: React.FC = () => {
                 { process: 'Data Collection', status: 'Implemented', progress: 100 },
                 { process: 'Quality Control', status: 'Ongoing', progress: 85 },
                 { process: 'Internal Review', status: 'Completed', progress: 100 },
-                { process: 'External Verification', status: 'To be confirmed', progress: 0 }
+                { process: 'External Verification', status: 'Implemented', progress: 100 }
               ].map((item, index) => (
                 <div key={index} className="space-y-2">
                   <div className="flex justify-between items-center flex-wrap gap-2">
@@ -54,7 +54,7 @@ const AssuranceSection: React.FC = () => {
             
             <div className="mt-6 p-4 bg-gray-50 rounded-xl print:mt-4 print:p-3">
               <p className="text-xs sm:text-sm text-gray-600 print:text-xs">
-                <strong>External verification status: To be confirmed.</strong> FY2025 inventory methodology, assumptions and activity data are disclosed for review. External verification has not been established by the available evidence.
+                <strong>External verification status: Implemented.</strong> The signed FY2025 GHG Emissions Inventory Verification Report is available in the Environment section.
               </p>
             </div>
             <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -62,7 +62,7 @@ const AssuranceSection: React.FC = () => {
                 ['Organisational boundary', 'Operational control approach'],
                 ['Scope 1', 'Mobile combustion from operationally controlled vehicles'],
                 ['Scope 2', 'Purchased electricity; location-based and market-based reporting'],
-                ['Scope 3', 'Assessment of all 15 categories using activity-based and spend-based estimates']
+                ['Scope 3', 'Assessment of 7 out of 15 Scope 3 Categories using activity-based and spend-based estimates']
               ].map(([label, value]) => (
                 <div key={label} className="p-4 bg-white border border-gray-200 rounded-xl">
                   <div className="text-xs text-gray-500">{label}</div>
@@ -70,10 +70,6 @@ const AssuranceSection: React.FC = () => {
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-xs sm:text-sm text-gray-600">
-              Calculations use country/regional and global proxy emission factors where actual activity-specific factors were unavailable. Estimation limitations and data-quality improvement opportunities remain for supplier transport, treatment routes, air travel, hotel, rental car, commuting and end-of-life treatment data.
-            </p>
-
             <div className="mt-6 text-center print:mt-4">
               <a
                 href={documents.environmentalprincipalendorsment}
@@ -185,19 +181,6 @@ const AssuranceSection: React.FC = () => {
               </div>
             </div>
             
-            <div className="mt-6 text-center print:mt-4">
-              <a
-                href={documents.ghgProgress}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-white font-medium hover:opacity-90 transition-opacity text-sm sm:text-base print:px-4 print:py-2 print:text-sm"
-                style={{ backgroundColor: bhsColors.esgGreen }}
-              >
-                <Download className="w-4 h-4 print:w-3 print:h-3" />
-                Download Progress Summary
-              </a>
-            </div>
           </div>
         </div>
       )
